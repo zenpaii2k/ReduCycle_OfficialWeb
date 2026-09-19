@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ReduCycle | Small Paper Recycling System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="brand">
+            <div class="logo">♻</div>
+
+            <div>
+                <h1>ReduCycle</h1>
+                <p>Recycling for a better future.</p>
+            </div>
+        </div>
+
+        <div class="connection">
+            <span class="connection-dot"></span>
+            <span id="connectionStatus">SYSTEM OFFLINE</span>
+        </div>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- CURRENT STATUS -->
+        <section class="status-section">
+
+            <div class="section-heading">
+                <h2>System Status</h2>
+                <span id="systemStatus" class="status-badge ready">
+                    READY
+                </span>
+            </div>
+
+            <div class="status-card">
+
+                <div class="current-stage">
+                    <span class="label">CURRENT PROCESS</span>
+
+                    <h2 id="currentProcess">
+                        Waiting for Start
+                    </h2>
+
+                    <p id="processDescription">
+                        Place waste paper into the input area and start
+                        the recycling process.
+                    </p>
+                </div>
+
+                <div class="timer">
+                    <span class="label">PROCESSING TIME</span>
+                    <strong id="processingTime">00:00</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECYCLING PROCESS -->
+        <section class="process-section">
+
+            <div class="section-heading">
+                <h2>Recycling Process</h2>
+            </div>
+
+            <div class="process-container">
+
+                <!-- STEP 1 -->
+                <div class="process-step completed" id="stepInput">
+
+                    <div class="step-number">1</div>
+
+                    <div class="step-content">
+                        <h3>Paper Input</h3>
+                        <p>Waste paper detected</p>
+                    </div>
+
+                    <span class="step-status">✓</span>
+
+                </div>
+
+
+                <!-- STEP 2 -->
+                <div class="process-step active" id="stepSoaking">
+
+                    <div class="step-number">2</div>
+
+                    <div class="step-content">
+                        <h3>Soaking &amp; Pulping</h3>
+                        <p>Waiting</p>
+                    </div>
+
+                    <span class="step-status">●</span>
+
+                </div>
+
+
+                <!-- STEP 3 -->
+                <div class="process-step" id="stepWater">
+
+                    <div class="step-number">3</div>
+
+                    <div class="step-content">
+                        <h3>Water Removal</h3>
+                        <p>Waiting</p>
+                    </div>
+
+                    <span class="step-status">○</span>
+
+                </div>
+
+
+                <!-- STEP 4 -->
+                <div class="process-step" id="stepSheet">
+
+                    <div class="step-number">4</div>
+
+                    <div class="step-content">
+                        <h3>Sheet Formation</h3>
+                        <p>Waiting</p>
+                    </div>
+
+                    <span class="step-status">○</span>
+
+                </div>
+
+
+                <!-- STEP 5 -->
+                <div class="process-step" id="stepDrying">
+
+                    <div class="step-number">5</div>
+
+                    <div class="step-content">
+                        <h3>Drying</h3>
+                        <p>Waiting</p>
+                    </div>
+
+                    <span class="step-status">○</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SENSOR / MACHINE INFORMATION -->
+        <section class="monitor-section">
+
+            <div class="section-heading">
+                <h2>Machine Monitoring</h2>
+            </div>
+
+            <div class="monitor-grid">
+
+                <!-- WATER LEVEL -->
+                <div class="monitor-card">
+
+                    <div class="card-icon">💧</div>
+
+                    <div class="card-information">
+                        <span class="label">WATER LEVEL</span>
+                        <strong id="waterLevel">NORMAL</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- PAPER SENSOR -->
+                <div class="monitor-card">
+
+                    <div class="card-icon">📄</div>
+
+                    <div class="card-information">
+                        <span class="label">PAPER DETECTION</span>
+                        <strong id="paperDetection">DETECTED</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- PUMP -->
+                <div class="monitor-card">
+
+                    <div class="card-icon">⚙</div>
+
+                    <div class="card-information">
+                        <span class="label">WATER PUMP</span>
+                        <strong id="pumpStatus">OFF</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- WASHING MACHINE / MOTOR -->
+                <div class="monitor-card">
+
+                    <div class="card-icon">🔄</div>
+
+                    <div class="card-information">
+                        <span class="label">PULPING MOTOR</span>
+                        <strong id="motorStatus">OFF</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- PRESS -->
+                <div class="monitor-card">
+
+                    <div class="card-icon">⬇</div>
+
+                    <div class="card-information">
+                        <span class="label">PRESS MECHANISM</span>
+                        <strong id="pressStatus">READY</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- SENSOR -->
+                <div class="monitor-card">
+
+                    <div class="card-icon">📡</div>
+
+                    <div class="card-information">
+                        <span class="label">SENSOR STATUS</span>
+                        <strong id="sensorStatus">NORMAL</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTROLS -->
+        <section class="control-section">
+
+            <div class="section-heading">
+                <h2>System Controls</h2>
+            </div>
+
+            <div class="controls">
+
+                <button
+                    id="startButton"
+                    class="control-button start"
+                    onclick="startProcess()">
+                    ▶ START
+                </button>
+
+                <button
+                    id="stopButton"
+                    class="control-button stop"
+                    onclick="stopProcess()">
+                    ■ STOP
+                </button>
+
+                <button
+                    id="resetButton"
+                    class="control-button reset"
+                    onclick="resetSystem()">
+                    ↻ RESET
+                </button>
+
+            </div>
+
+            <p class="control-note">
+                Controls will communicate with the ESP32 when the
+                hardware connection is implemented.
+            </p>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="statistics-section">
+
+            <div class="section-heading">
+                <h2>Recycling Statistics</h2>
+            </div>
+
+            <div class="statistics-grid">
+
+                <div class="stat-card">
+                    <span class="label">COMPLETED CYCLES</span>
+                    <strong id="completedCycles">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span class="label">CURRENT CYCLE</span>
+                    <strong id="currentCycle">#001</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span class="label">SYSTEM STATE</span>
+                    <strong id="machineState">IDLE</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>
+            ReduCycle &copy; 2026
+        </p>
+
+        <p>
+            Made by Group 3 of BSIT-311.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="app.js"></script>
+
+</body>
+</html>
